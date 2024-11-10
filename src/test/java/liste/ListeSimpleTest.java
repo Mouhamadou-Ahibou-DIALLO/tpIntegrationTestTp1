@@ -352,14 +352,14 @@ class ListeSimpleTest {
         assertEquals(1, listeATester.tete.getSuivant().getElement());
     }
 
-    @test
+    @Test
     void getSuivantNotNull() {
         listeATester.ajout(1);
         listeATester.ajout(2);
         assertNotNull(listeATester.tete.getSuivant());
     }
 
-    @test
+    @Test
     void getCouantDifferentDeElement() {
         listeATester.ajout(1);
         listeATester.ajout(2);
