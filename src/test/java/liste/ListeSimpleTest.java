@@ -319,22 +319,14 @@ class ListeSimpleTest {
     }
 
     @Test
-    void supprimePremierAjouEtListeVide() {
-        listeATester.ajout(1);
-        listeATester.supprimePremier(1); // Ne devrait rien faire
-        assertEquals("ListeSimple()", listeATester.toString());
-    }
-
-
-    @Test
-    public void supprimePremierPremierElement() {
+    void supprimePremierPremierElement() {
         listeATester.ajout(1);
         listeATester.supprimePremier(1);
         assertEquals(0, listeATester.getSize());
     }
 
     @Test
-    public void supprimePremierElementExistant() {
+    void supprimePremierElementExistant() {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.supprimePremier(2);
@@ -343,13 +335,13 @@ class ListeSimpleTest {
     }
 
     @Test
-    public void getCourantNull() {
+    void getCourantNull() {
         listeATester.ajout(1);
         assertNull(listeATester.tete.getSuivant());
     }
 
     @Test
-    public void testGetPrecedentEtCourant() {
+    void testGetPrecedentEtCourant() {
         listeATester.ajout(1);
         listeATester.ajout(2);
         assertNotNull(listeATester.tete);
