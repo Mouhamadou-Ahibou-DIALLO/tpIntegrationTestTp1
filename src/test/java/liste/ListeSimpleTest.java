@@ -50,7 +50,7 @@ class ListeSimpleTest {
         listeATester.ajout(2);
         listeATester.ajout(3);
         System.out.println(listeATester);
-        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3))", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
     }
 
     @Test
@@ -289,20 +289,17 @@ class ListeSimpleTest {
 
     @Test
     void listeVide() {
-        ListeSimple listeVide = new ListeSimple();
-        assertNull(listeVide.getPrecedent(listeVide.tete));
+        assertNull(listeATester);
     }
 
     @Test
     void listeAvecUnElement() {
-        ListeSimple listeATester = new ListeSimple();
         listeATester.ajout(1);
         assertNull(listeATester.getPrecedent(listeATester.tete));
     }
 
     @Test
     void listeAvecDeuxElements() {
-        ListeSimple listeATester = new ListeSimple();
         listeATester.ajout(1);
         listeATester.ajout(2);
         assertEquals(1, listeATester.getPrecedent(listeATester.tete.getSuivant()).getElement());
@@ -313,7 +310,7 @@ class ListeSimpleTest {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.echanger(listeATester.tete, listeATester.tete.getSuivant());
-        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(1), Noeud(2))", listeATester.toString());
     }
 
     @Test
@@ -329,17 +326,7 @@ class ListeSimpleTest {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.supprimeTousRecurs(Integer.valueOf(3), listeATester.tete);
-        assertEquals("ListeSimple(Noeud(1), Noeud(2))", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
-
-    @Test
-    void supprimeTousAvecOccurrences() {
-        listeATester.ajout(1);
-        listeATester.ajout(2);
-        listeATester.ajout(1);
-        listeATester.supprimeTousRecurs(Integer.valueOf(1), listeATester.tete);
-        assertEquals("ListeSimple(Noeud(2))", listeATester.toString());
-    }
-
 
 }

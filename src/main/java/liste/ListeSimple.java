@@ -15,10 +15,13 @@ public class ListeSimple {
 
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
+        System.out.println("first courant = " + courant);
         while (courant != null && courant.getElement() != element)
             courant = courant.getSuivant();
+        System.out.println("second courant = " + courant);
         if (courant != null)
             courant.setElement(nouvelleValeur);
+        System.out.println("third courant = " + courant);
     }
 
     public void modifieTous(Object element, Object nouvelleValeur) {
@@ -110,6 +113,9 @@ public class ListeSimple {
     // la liste n'est pas vide puisqu'on transmet un Node de la liste et le Node existe obligatoirement
         Noeud precedent = tete;
         Noeud courant = precedent.getSuivant();
+
+        if (courant == null) return null;
+
         while (courant != r) {
             precedent = courant;
             courant = courant.getSuivant();
