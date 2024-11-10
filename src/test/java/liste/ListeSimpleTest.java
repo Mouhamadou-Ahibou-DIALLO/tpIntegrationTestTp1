@@ -335,19 +335,36 @@ class ListeSimpleTest {
     }
 
     @Test
-    void getCourantNull() {
+    void getSuivantNull() {
         listeATester.ajout(1);
         assertNull(listeATester.tete.getSuivant());
+        listeATester.supprimePremier(1);
+        assertEquals(0, listeATester.getSize());
     }
 
     @Test
-    void testGetPrecedentEtCourant() {
+    void getPrecedentEtCourant() {
         listeATester.ajout(1);
         listeATester.ajout(2);
         assertNotNull(listeATester.tete);
         assertNotNull(listeATester.tete.getSuivant());
         assertEquals(2, listeATester.tete.getElement());
         assertEquals(1, listeATester.tete.getSuivant().getElement());
+    }
+
+    @test
+    void getSuivantNotNull() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        assertNotNull(listeATester.tete.getSuivant());
+    }
+
+    @test
+    void getCouantDifferentDeElement() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        Noeud courant = listeATester.tete.getSuivant();
+        assertNotEquals(2, courant.getElement());
     }
 
 }
