@@ -328,7 +328,7 @@ class ListeSimpleTest {
     void supprimeTousElementAbsent() {
         listeATester.ajout(1);
         listeATester.ajout(2);
-        listeATester.supprimeTousRecurs(Integer.valueOf(3));
+        listeATester.supprimeTousRecurs(Integer.valueOf(3), listeATester.tete);
         assertEquals("ListeSimple(Noeud(1), Noeud(2))", listeATester.toString());
     }
 
@@ -337,7 +337,7 @@ class ListeSimpleTest {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.ajout(1);
-        listeATester.supprimeTousRecurs(Integer.valueOf(1));
+        listeATester.supprimeTousRecurs(Integer.valueOf(1), listeATester.tete);
         assertEquals("ListeSimple(Noeud(2))", listeATester.toString());
     }
 
