@@ -315,13 +315,47 @@ class ListeSimpleTest {
         listeATester.ajout(2);
         listeATester.supprimeTousRecurs(Integer.valueOf(3), listeATester.tete);
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(2, listeATester.getSize());
     }
 
     @Test
-    void testSupprimePremierListeVide() {
+    void supprimePremierListeVide() {
         listeATester.ajout(1);
         listeATester.supprimePremier(1); // Ne devrait rien faire
         assertEquals("ListeSimple()", listeATester.toString());
+    }
+
+
+    @Test
+    public void supprimePremierPremierElement() {
+        listeATester.ajout(1);
+        listeATester.supprimePremier(1);
+        assertEquals(0, listeATester.getSize());
+    }
+
+    @Test
+    public void supprimePremierElementExistant() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.supprimePremier(2);
+        assertEquals(1, listeATester.getSize());
+        assertEquals(1, listeATester.tete.getElement());
+    }
+
+    @Test
+    public void getCourantNull() {
+        listeATester.ajout(1);
+        assertNull(listeATester.tete.getSuivant());
+    }
+
+    @Test
+    public void testGetPrecedentEtCourant() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        assertNotNull(listeATester.tete);
+        assertNotNull(listeATester.tete.getSuivant());
+        assertEquals(2, listeATester.tete.getElement());
+        assertEquals(1, listeATester.tete.getSuivant().getElement());
     }
 
 }
