@@ -284,7 +284,7 @@ class ListeSimpleTest {
     void getPrecedentDernierElement() {
         listeATester.ajout(1);
         listeATester.ajout(2);
-        assertEquals(1, listeATester.getPrecedent(listeATester.teteSuivante).getElement());
+        assertEquals(1, listeATester.getPrecedent(listeATester.tete.getSuivant()).getElement());
     }
 
     @Test
@@ -297,7 +297,7 @@ class ListeSimpleTest {
     void listeAvecUnElement() {
         ListeSimple listeATester = new ListeSimple();
         listeATester.ajout(1);
-        assertEquals(1, listeATester.getPrecedent(listeATester.tete).getElement());
+        assertNull(listeATester.getPrecedent(listeATester.tete));
     }
 
     @Test
@@ -305,14 +305,14 @@ class ListeSimpleTest {
         ListeSimple listeATester = new ListeSimple();
         listeATester.ajout(1);
         listeATester.ajout(2);
-        assertEquals(1, listeATester.getPrecedent(listeATester.teteSuivante).getElement());
+        assertEquals(1, listeATester.getPrecedent(listeATester.tete.getSuivant()).getElement());
     }
 
     @Test
     void echangerDeuxNoeudsAdjacents() {
         listeATester.ajout(1);
         listeATester.ajout(2);
-        listeATester.echanger(listeATester.tete, listeATester.teteSuivante);
+        listeATester.echanger(listeATester.tete, listeATester.tete.getSuivant());
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
 
@@ -328,7 +328,7 @@ class ListeSimpleTest {
     void supprimeTousElementAbsent() {
         listeATester.ajout(1);
         listeATester.ajout(2);
-        listeATester.supprimeTousRecurs(3);
+        listeATester.supprimeTousRecurs(Integer.valueOf(3));
         assertEquals("ListeSimple(Noeud(1), Noeud(2))", listeATester.toString());
     }
 
@@ -337,8 +337,9 @@ class ListeSimpleTest {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.ajout(1);
-        listeATester.supprimeTousRecurs(1);
+        listeATester.supprimeTousRecurs(Integer.valueOf(1));
         assertEquals("ListeSimple(Noeud(2))", listeATester.toString());
     }
+
 
 }
