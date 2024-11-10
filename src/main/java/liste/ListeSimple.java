@@ -15,13 +15,10 @@ public class ListeSimple {
 
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
-        System.out.println("first courant = " + courant);
         while (courant != null && courant.getElement() != element)
             courant = courant.getSuivant();
-        System.out.println("second courant = " + courant);
         if (courant != null)
             courant.setElement(nouvelleValeur);
-        System.out.println("third courant = " + courant);
     }
 
     public void modifieTous(Object element, Object nouvelleValeur) {
@@ -125,7 +122,8 @@ public class ListeSimple {
             precedent = courant;
             courant = courant.getSuivant();
         }
-        return courant == r ? precedent : null;
+
+        return precedent;
     }
 
     public void echanger(Noeud r1, Noeud r2) {

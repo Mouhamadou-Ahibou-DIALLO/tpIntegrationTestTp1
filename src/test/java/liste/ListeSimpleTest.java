@@ -317,4 +317,11 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
 
+    @Test
+    void testSupprimePremierListeVide() {
+        listeATester.ajout(1);
+        listeATester.supprimePremier(1); // Ne devrait rien faire
+        assertEquals("ListeSimple()", listeATester.toString());
+    }
+
 }
