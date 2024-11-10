@@ -319,7 +319,7 @@ class ListeSimpleTest {
     }
 
     @Test
-    void supprimePremierListeVide() {
+    void supprimePremierAjouEtListeVide() {
         listeATester.ajout(1);
         listeATester.supprimePremier(1); // Ne devrait rien faire
         assertEquals("ListeSimple()", listeATester.toString());
