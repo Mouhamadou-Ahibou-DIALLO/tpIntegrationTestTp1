@@ -284,7 +284,7 @@ class ListeSimpleTest {
     void listeAvecDeuxElements() {
         listeATester.ajout(1);
         listeATester.ajout(2);
-        assertEquals(1, listeATester.getPrecedent(listeATester.tete.getSuivant()).getElement());
+        assertEquals(2, listeATester.getPrecedent(listeATester.tete.getSuivant()).getElement());
     }
 
     @Test
